@@ -1,0 +1,17 @@
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Molokai theme
+Plugin 'fatih/molokai'
+call vundle#end()
+
+filetype plugin indent on
+syntax on
+silent! colorscheme molokai
+set mouse=a

@@ -1,0 +1,12 @@
+# ~/.tmuxinator/goappengine.yml
+
+name: goappengine
+root: ~/api_compte_est_bon
+
+windows:
+  - editor:
+      layout: ae01,189x49,0,0[189x33,0,0{123x33,0,0,0,65x33,124,0,2},189x15,0,34,1] 
+      panes:
+        - vim -p ./src/backend.go ./data.json
+        -
+        - goapp serve -host 0.0.0.0 ./src
