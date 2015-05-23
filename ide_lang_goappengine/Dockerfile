@@ -1,4 +1,4 @@
-FROM opencloudlabs/ide_plugin_go:0.1
+FROM opencloudlabs/ide_plugin_go:latest
 MAINTAINER pommier.v@gmail.com 
 
 USER root

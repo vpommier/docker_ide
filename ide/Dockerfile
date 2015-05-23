@@ -1,4 +1,4 @@
-FROM fedora:20
+FROM fedora:21
 MAINTAINER pommier.v@gmail.com 
 
 USER root
@@ -19,22 +19,18 @@ RUN curl -L http://install.ohmyz.sh | sh
 
 # ZSH configuration 
 RUN sed -i -e "s/^\(ZSH_THEME=\).*/\1\"linuxonly\"/" \
--e "s/^\(plugins=\).*/\1(git tmux tmuxinator)/" \
--e "/EDITOR='vim'/s/^#//" \
--e '/^#\s*User\s*configuration/a\export TERM="screen-256color"' ~/.zshrc
+	-e "s/^\(plugins=\).*/\1(git tmux tmuxinator)/" \
+	-e "/EDITOR='vim'/s/^#//" \
+	-e '/^#\s*User\s*configuration/a\export TERM="screen-256color"' ~/.zshrc
 
 # Commentaire d'une ligne provoquant une erreur dans le theme linuxonly d'OhMyZsh.
 RUN sed -i 's/^\(local foopath=$(perl \/home\/scp1\/bin\/foopath)\)$/#\1/' ~/.oh-my-zsh/themes/linuxonly.zsh-theme
 
-# Vim plugins management tool installation (Vundle)
-RUN mkdir -p ~/.vim/plugin
-RUN git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 # Vim configuration
 COPY ./vimrc /root/.vimrc
-
-# Vim plugins installation
-RUN vim +PluginInstall +qall
+RUN mkdir -p ~/.vim/plugin; \
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim \
+	&& vim +PluginInstall +qall
 
 # Tmux configuration
 COPY ./tmux.conf /root/.tmux.conf
