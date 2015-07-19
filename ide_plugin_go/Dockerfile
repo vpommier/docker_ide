@@ -1,4 +1,4 @@
-FROM opencloudlabs/ide:latest
+FROM vpommier/ide_base:latest
 MAINTAINER pommier.v@gmail.com 
 
 USER root
