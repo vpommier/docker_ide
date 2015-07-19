@@ -15,7 +15,7 @@ RUN curl -sSL https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-am
 
 # Golang workspace configuration
 RUN mkdir -p ~/go/{src,bin,pkg}
-RUN sed -i "/^export\sPATH=/a\export PATH=\"\/usr\/local\/go/bin:\$PATH\"" ~/.zshrc
+RUN sed -i "/^export\sPATH=/a\export PATH=\"\/usr\/local\/go\/bin:\$PATH\"" ~/.zshrc
 ENV PATH /usr/local/go/bin:$PATH
 ENV GOPATH /root/go
 ENV GOBIN $GOPATH/bin

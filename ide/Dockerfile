@@ -21,6 +21,8 @@ RUN curl -L http://install.ohmyz.sh | sh
 RUN sed -i -e "s/^\(ZSH_THEME=\).*/\1\"linuxonly\"/" \
 	-e "s/^\(plugins=\).*/\1(git tmux tmuxinator)/" \
 	-e "/EDITOR='vim'/s/^#//" \
+	-e '/CASE_SENSITIVE=/s/^#\s*//' \
+	-e '/DISABLE_AUTO_UPDATE=/s/^#\s*//' \
 	-e '/^#\s*User\s*configuration/a\export TERM="screen-256color"' ~/.zshrc
 
 # Commentaire d'une ligne provoquant une erreur dans le theme linuxonly d'OhMyZsh.
