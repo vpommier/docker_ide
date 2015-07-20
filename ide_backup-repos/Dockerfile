@@ -1,4 +1,4 @@
-FROM opencloudlabs/ide_lang_go:1.4.2
+FROM vpommier/ide_lang_go:1.4.2
 
 RUN yum install -y \
 	time \
