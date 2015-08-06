@@ -7,6 +7,7 @@ WORKDIR /root/
 RUN yum install -y \
 	git \
 	zsh \
+	xterm \
 	ruby \
 	tmux \
 	tmuxinator \
@@ -36,5 +37,8 @@ RUN mkdir -p ~/.vim/plugin; \
 
 # Tmux configuration
 COPY ./tmux.conf /root/.tmux.conf
+
+# Xterm configuration
+COPY ./Xdefaults /root/.Xdefaults
 
 CMD ["/bin/zsh"]
